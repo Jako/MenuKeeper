@@ -1,0 +1,25 @@
+{
+  "name": "treehillstudio/menukeeper",
+  "description": "Keep the order of the manager menu",
+  "authors": [
+    {
+      "name": "Thomas Jakobi",
+      "email": "office@treehillstudio.com",
+      "homepage": "https://treehillstudio.com"
+    }
+  ],
+  "license": "proprietary",
+  "config": {
+    "platform": {
+      "php": "7.4.0"
+    }
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "TreehillStudio\\MenuKeeper\\": "src/"
+    }
+  }
+}

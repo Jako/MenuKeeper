@@ -1,0 +1,24 @@
+{
+  "name": "menukeeper",
+  "description": "Maintain MenuKeeper",
+  "author": "Thomas Jakobi <office@treehillstudio.com>",
+  "private": true,
+  "devDependencies": {
+    "date-format": "^4.0.14",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^2.0.9",
+    "gulp-replace": "^1.1.4",
+    "gulp-uglify": "^3.0.2",
+    "postcss": "^8.4.20",
+    "sass": "^1.57.1",
+    "uglify-js": "^3.17.4"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead",
+    "ie >= 10"
+  ]
+}
