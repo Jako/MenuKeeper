@@ -181,6 +181,7 @@ class MenuKeeper
         $cacheManager = $this->modx->getCacheManager();
         $menus = $cacheManager->get('menu', $this->cacheOptions);
 
+        $menuObject = null;
         if (is_array($menus)) {
             foreach ($menus as $key => $menu) {
                 $menuObject = $this->modx->getObject('modMenu', [
