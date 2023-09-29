@@ -2,7 +2,7 @@
 /**
  * MenuKeeper
  *
- * Copyright 2022 by Thomas Jakobi <office@treehillstudio.com>
+ * Copyright 2022-2023 by Thomas Jakobi <office@treehillstudio.com>
  *
  * @package menukeeper
  * @subpackage classfile
@@ -42,7 +42,7 @@ class MenuKeeper
      * The version
      * @var string $version
      */
-    public $version = '1.0.0';
+    public $version = '1.0.1';
 
     /**
      * The class options

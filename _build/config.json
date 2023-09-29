@@ -3,14 +3,14 @@
   "lowCaseName": "menukeeper",
   "description": "Keep the order of the manager menu",
   "author": "Thomas Jakobi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "package": {
     "menus": [
       {
         "text": "menukeeper.menu",
         "description": "menukeeper.menu_desc",
         "action": "",
-        "handler": "",
+        "menuIndex": "999",
         "permissions": "settings",
         "parent": "manage"
       },
@@ -19,6 +19,7 @@
         "description": "menukeeper.menu_save_desc",
         "action": "",
         "handler": "MenuKeeper.util.saveMenu(); return false;",
+        "menuIndex": "1",
         "permissions": "settings",
         "parent": "menukeeper.menu"
       },
@@ -27,6 +28,7 @@
         "description": "menukeeper.menu_load_desc",
         "action": "",
         "handler": "MenuKeeper.util.loadMenu(); return false;",
+        "menuIndex": "2",
         "permissions": "settings",
         "parent": "menukeeper.menu"
       }
