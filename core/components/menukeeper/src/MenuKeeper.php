@@ -42,7 +42,7 @@ class MenuKeeper
      * The version
      * @var string $version
      */
-    public $version = '1.0.1';
+    public $version = '1.0.2';
 
     /**
      * The class options
@@ -154,7 +154,7 @@ class MenuKeeper
             $c->sortby('parent');
             $c->sortby('menuindex');
 
-            /** @var modMenu $menuObjects */
+            /** @var modMenu[] $menuObjects */
             $menuObjects = $this->modx->getIterator('modMenu', $c);
 
             foreach ($menuObjects as $menuObject) {
@@ -183,6 +183,7 @@ class MenuKeeper
 
         if (is_array($menus)) {
             foreach ($menus as $key => $menu) {
+                /** @var modMenu $menuObject */
                 $menuObject = $this->modx->getObject('modMenu', [
                     'text' => $key
                 ]);
@@ -200,10 +201,8 @@ class MenuKeeper
             }
         }
 
-        $this->modx->config[xPDO::OPT_SETUP] = false;
-
-        if ($menuObject) {
-            $menuObject->rebuildCache();
+        if (!empty($menuObject)) {
+            $this->cacheModMenu($menuObject);
         }
     }
 
@@ -220,7 +219,6 @@ class MenuKeeper
         $cacheManager = $this->modx->getCacheManager();
         $menus = $cacheManager->get('menu', $this->cacheOptions);
 
-        $menuObject = null;
         if (is_array($menus)) {
             /** @var modMenu[] $menuObjects */
             $menuObjects = $this->modx->getIterator('modMenu');
@@ -237,10 +235,8 @@ class MenuKeeper
             }
         }
 
-        $this->modx->config[xPDO::OPT_SETUP] = false;
-
-        if ($menuObject) {
-            $menuObject->rebuildCache();
+        if (!empty($menuObject)) {
+            $this->cacheModMenu($menuObject);
         }
     }
 
@@ -278,5 +274,17 @@ class MenuKeeper
                 $idx++;
             }
         }
+    }
+
+    /**
+     * @param modMenu $menuObject
+     * @return void
+     */
+    private function cacheModMenu($menuObject)
+    {
+        $oldOptSetup = $this->modx->getOption(xPDO::OPT_SETUP);
+        $this->modx->setOption(xPDO::OPT_SETUP, false);
+        $menuObject->rebuildCache();
+        $this->modx->setOption(xPDO::OPT_SETUP, $oldOptSetup);
     }
 }
