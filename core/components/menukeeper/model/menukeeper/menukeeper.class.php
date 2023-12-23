@@ -11,7 +11,7 @@
 require_once dirname(dirname(__DIR__)) . '/vendor/autoload.php';
 
 /**
- * Class Agenda
+ * Class MenuKeeper
  */
 class MenuKeeper extends \TreehillStudio\MenuKeeper\MenuKeeper
 {
