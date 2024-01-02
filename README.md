@@ -1,4 +1,4 @@
-[![Default Lexicon](https://hosted.weblate.org/widgets/modx-extras/menukeeper/standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/menukeeper/standard/)
+[![Default Lexicon](https://hosted.weblate.org/widget/modx-extras/menukeeper/standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/menukeeper/standard/)
 
 # MenuKeeper
 
