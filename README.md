@@ -1,4 +1,4 @@
-[![Default Lexicon](https://hosted.weblate.org/widgets/modx-extras/-/modx-menukeeper-standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/modx-menukeeper-standard/)
+[![Default Lexicon](https://hosted.weblate.org/widgets/modx-extras/menukeeper/standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/menukeeper/standard/)
 
 # MenuKeeper
 
@@ -22,4 +22,4 @@ The project is licensed under the [GPLv2 license](https://github.com/Jako/MenuKe
 
 ## Translations
 
-Translations of the package can be made for the [Default Lexicon](https://hosted.weblate.org/projects/modx-extras/modx-menukeeper-standard/) and the [System Setting Lexicon](https://hosted.weblate.org/projects/modx-extras/modx-menukeeper-system-settings/)
+Translations of the package can be made for the [Default Lexicon](https://hosted.weblate.org/projects/modx-extras/menukeeper/standard/) and the [System Setting Lexicon](https://hosted.weblate.org/projects/modx-extras/menukeeper/system-settings/)
