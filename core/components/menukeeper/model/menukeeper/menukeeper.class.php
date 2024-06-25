@@ -2,7 +2,7 @@
 /**
  * MenuKeeper
  *
- * Copyright 2022-2023 by Thomas Jakobi <office@treehillstudio.com>
+ * Copyright 2022-2024 by Thomas Jakobi <office@treehillstudio.com>
  *
  * @package menukeeper
  * @subpackage classfile

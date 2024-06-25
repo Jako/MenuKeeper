@@ -6,7 +6,7 @@ edit_uri: tree/master/docs
 repo_name: 'Jako/MenuKeeper'
 repo_url: https://github.com/Jako/MenuKeeper
 
-copyright: '&copy; 2022-2023 <a href="https://treehillstudio.com">Treehill Studio</a>'
+copyright: '&copy; 2022-2024 <a href="https://treehillstudio.com">Treehill Studio</a>'
 
 nav:
 - Description: 'index.md'

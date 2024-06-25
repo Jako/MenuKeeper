@@ -3,7 +3,7 @@
   "lowCaseName": "menukeeper",
   "description": "Keep the order of the manager menu",
   "author": "Thomas Jakobi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "package": {
     "menus": [
       {
@@ -74,6 +74,7 @@
     },
     "resolver": {
       "after": [
+        "resolve.settings.php",
         "resolve.treehillstudio.php"
       ]
     }
