@@ -9,8 +9,6 @@
  * @var xPDOObject $object
  */
 
-$success = true;
-
 if ($object->xpdo) {
     /** @var modX $modx */
     $modx = &$object->xpdo;
@@ -28,7 +26,6 @@ if ($object->xpdo) {
                 }
             } else {
                 $modx->log(xPDO::LOG_LEVEL_ERROR, 'package_installer_at_top setting was not found, so the setting can\'t be changed.');
-                $success = false;
             }
             break;
         case xPDOTransport::ACTION_UNINSTALL:
@@ -42,9 +39,8 @@ if ($object->xpdo) {
                 }
             } else {
                 $modx->log(xPDO::LOG_LEVEL_ERROR, 'package_installer_at_top setting was not found, so the setting can\'t be changed.');
-                $success = false;
             }
             break;
     }
 }
-return $success;
+return true;
