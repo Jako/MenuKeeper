@@ -17,28 +17,32 @@ if ($object->xpdo) {
         case xPDOTransport::ACTION_INSTALL:
         case xPDOTransport::ACTION_UPGRADE:
             /** @var modSystemSetting $settingObject */
-            $settingObject = $modx->getObject('modSystemSetting', ['key' => 'package_installer_at_top']);
+            $settingObject = $modx->getObject('modSystemSetting', [
+                'key' => 'package_installer_at_top'
+            ]);
             if ($settingObject) {
                 if ($settingObject->get('value') == true) {
-                    $settingObject->set('value',false);
+                    $settingObject->set('value', false);
                     $settingObject->save();
-                    $modx->log(xPDO::LOG_LEVEL_INFO, 'package_installer_at_top disabled');
+                    $modx->log(xPDO::LOG_LEVEL_INFO, 'package_installer_at_top system setting disabled');
                 }
             } else {
-                $modx->log(xPDO::LOG_LEVEL_ERROR, 'package_installer_at_top setting was not found, so the setting can\'t be changed.');
+                $modx->log(xPDO::LOG_LEVEL_ERROR, 'package_installer_at_top system setting was not found, so the setting can\'t be changed.');
             }
             break;
         case xPDOTransport::ACTION_UNINSTALL:
             /** @var modSystemSetting $settingObject */
-            $settingObject = $modx->getObject('modSystemSetting', ['key' => 'package_installer_at_top']);
+            $settingObject = $modx->getObject('modSystemSetting', [
+                'key' => 'package_installer_at_top'
+            ]);
             if ($settingObject) {
                 if ($settingObject->get('value') == false) {
-                    $settingObject->set('value',true);
+                    $settingObject->set('value', true);
                     $settingObject->save();
-                    $modx->log(xPDO::LOG_LEVEL_INFO, 'package_installer_at_top disabled');
+                    $modx->log(xPDO::LOG_LEVEL_INFO, 'package_installer_at_top setting disabled');
                 }
             } else {
-                $modx->log(xPDO::LOG_LEVEL_ERROR, 'package_installer_at_top setting was not found, so the setting can\'t be changed.');
+                $modx->log(xPDO::LOG_LEVEL_ERROR, 'package_installer_at_top system setting was not found, so the setting can\'t be changed.');
             }
             break;
     }

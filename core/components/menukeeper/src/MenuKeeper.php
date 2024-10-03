@@ -42,7 +42,7 @@ class MenuKeeper
      * The version
      * @var string $version
      */
-    public $version = '1.0.3';
+    public $version = '1.1.0';
 
     /**
      * The class options
@@ -102,6 +102,7 @@ class MenuKeeper
         // Add default options
         $this->options = array_merge($this->options, [
             'debug' => (bool)$this->getOption('debug', $options, false),
+            'cachePermissions' => (bool)$this->getOption('cache_permissions', $options, false),
             'modxversion' => $modxversion['version']
         ]);
 
@@ -137,7 +138,7 @@ class MenuKeeper
     }
 
     /**
-     * Cache the current parent and menuindex of eacht menu entry
+     * Cache the current parent, menuindex and permissions of each menu entry
      *
      * @param bool $reset
      * @return void
@@ -160,8 +161,11 @@ class MenuKeeper
             foreach ($menuObjects as $menuObject) {
                 $result[$menuObject->get('text')] = [
                     'parent' => $menuObject->get('parent'),
-                    'menuindex' => $menuObject->get('menuindex')
+                    'menuindex' => $menuObject->get('menuindex'),
                 ];
+                if ($this->getOption('cachePermissions')) {
+                    $result[$menuObject->get('text')]['permissions'] = $menuObject->get('permissions');
+                }
             }
 
             $cacheManager->set('menu', $result, 0, $this->cacheOptions);
@@ -169,7 +173,7 @@ class MenuKeeper
     }
 
     /**
-     * Restore the cached parent and menuindex of each menu entry
+     * Restore the cached parent, menuindex and permissions of each menu entry
      *
      * @return void
      */
@@ -189,11 +193,15 @@ class MenuKeeper
                 ]);
                 if ($menuObject && (
                         $menuObject->get('parent') !== $menu['parent'] ||
-                        $menuObject->get('menuindex') !== $menu['menuindex']
+                        $menuObject->get('menuindex') !== $menu['menuindex'] ||
+                        ($this->getOption('cachePermissions') && $menuObject->get('permissions') !== $menu['permissions'])
                     )
                 ) {
                     $menuObject->set('parent', $menu['parent']);
                     $menuObject->set('menuindex', $menu['menuindex']);
+                    if ($this->getOption('cachePermissions')) {
+                        $menuObject->set('permissions', $menu['permissions']);
+                    }
                     if (!$menuObject->save()) {
                         $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'Menu state of ' . $key . ' can\'t be restored!', '', 'MenuKeeper');
                     }
@@ -219,6 +227,7 @@ class MenuKeeper
         $cacheManager = $this->modx->getCacheManager();
         $menus = $cacheManager->get('menu', $this->cacheOptions);
 
+        $changedMenuObject = null;
         if (is_array($menus)) {
             /** @var modMenu[] $menuObjects */
             $menuObjects = $this->modx->getIterator('modMenu');
@@ -228,6 +237,7 @@ class MenuKeeper
                     $menuObject->set('menuindex', $this->modx->getCount('modMenu', [
                         'parent' => $menuObject->get('parent')
                     ]));
+                    $changedMenuObject = $menuObject;
                     if (!$menuObject->save()) {
                         $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'Menu entry ' . $menuObject->get('text') . ' can\'t be set to the last menuindex!', '', 'MenuKeeper');
                     }
@@ -235,8 +245,8 @@ class MenuKeeper
             }
         }
 
-        if (!empty($menuObject)) {
-            $this->cacheModMenu($menuObject);
+        if ($changedMenuObject) {
+            $this->cacheModMenu($changedMenuObject);
         }
     }
 
