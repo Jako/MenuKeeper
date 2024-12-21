@@ -42,7 +42,7 @@ class MenuKeeper
      * The version
      * @var string $version
      */
-    public $version = '1.1.0';
+    public $version = '1.1.1-pl2';
 
     /**
      * The class options
