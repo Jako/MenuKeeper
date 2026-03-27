@@ -19,7 +19,7 @@ MenuKeeper uses the following system settings in the namespace `menukeeper`:
 | menukeeper.cache_permissions | Cache Permission | Cache the permission of each menu entry.     | No      |
 | menukeeper.debug             | Debug            | Log debug information in the MODX error log. | No      |
 
-!!! caution "Save the menu after system setting change"
+!!! warning "Save the menu after system setting change"
 
     If you enable `menukeeper.cache_permissions`, you have to save the menu
     afterward with `Manage` -> `MenuKeeper` -> `Save`. Otherwise, the menu
