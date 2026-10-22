@@ -1,6 +1,7 @@
 {
   "name": "treehillstudio/menukeeper",
   "description": "Keep the order of the manager menu",
+  "version": "1.1.1-pl2",
   "authors": [
     {
       "name": "Thomas Jakobi",
