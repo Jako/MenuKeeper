@@ -11,6 +11,7 @@ use TreehillStudio\MenuKeeper\Processors\Processor;
 class MenuKeeperLoadMenuProcessor extends Processor
 {
     public $languageTopics = ['menukeeper:default'];
+    public $permission = 'settings';
 
     /**
      * {@inheritDoc}
@@ -18,7 +19,11 @@ class MenuKeeperLoadMenuProcessor extends Processor
      */
     function process()
     {
-        $this->menukeeper->restoreMenu();
+        if (!$this->menukeeper->hasCachedMenu('snapshot')) {
+            return $this->failure($this->modx->lexicon('menukeeper.menu_not_saved'));
+        }
+        $this->menukeeper->restoreMenu('snapshot');
+        // The restored menu state is the new state that is restored after a package installation
         $this->menukeeper->cacheMenu(true);
         return $this->success($this->modx->lexicon('menukeeper.menu_loaded'));
     }

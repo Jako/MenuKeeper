@@ -35,7 +35,7 @@ MenuKeeper.util.loadMenu = function () {
                 fn: function () {
                     window.location.reload();
                 },
-                scope: true
+                scope: this
             },
             failure: {
                 fn: function (response) {

@@ -12,6 +12,7 @@ $_lang['menukeeper.menu_load'] = 'Laden';
 $_lang['menukeeper.menu_load_confirm'] = 'Sind Sie sicher, dass Sie die gespeicherten Menüeinträge laden wollen? Der Manager wird danach neu geladen.';
 $_lang['menukeeper.menu_load_desc'] = 'Menüeinträge laden';
 $_lang['menukeeper.menu_loaded'] = 'Menüeinträge geladen!';
+$_lang['menukeeper.menu_not_saved'] = 'Keine gespeicherten Menüeinträge gefunden! Bitte speichern Sie die Menüeinträge zuerst.';
 $_lang['menukeeper.menu_save'] = 'Speichern';
 $_lang['menukeeper.menu_save_desc'] = 'Menüeinträge speichern';
 $_lang['menukeeper.menu_saved'] = 'Menüeinträge gespeichert!';

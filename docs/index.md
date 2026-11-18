@@ -9,13 +9,14 @@ Keep the order of the manager menu after installing or updating an extra.
 
 ### Features
 
-This extra caches the order of the menu and restores it after the installation 
-or the update of an extra is finished. It also moves new menu entries added 
-during installing a package to the bottom.
+This extra caches the order of the menu and restores it after the installation
+or the update of an extra is finished. It also moves new menu entries added
+during installing a package to the bottom. A snapshot of the menu order can be
+saved and loaded manually.
 
 ### License
 
-The project is licensed under the [GPLv2 license](https://github.com/Jako/MenuKeeper/LICENSE.md).
+The project is licensed under the [GPLv2 license](https://github.com/Jako/MenuKeeper/blob/master/LICENSE.md).
 
 ### Translations [![Default Lexicon](https://hosted.weblate.org/widget/modx-extras/menukeeper/standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/menukeeper/)
 

@@ -11,6 +11,7 @@ use TreehillStudio\MenuKeeper\Processors\Processor;
 class MenuKeeperSaveMenuProcessor extends Processor
 {
     public $languageTopics = ['menukeeper:default'];
+    public $permission = 'settings';
 
     /**
      * {@inheritDoc}
@@ -18,7 +19,7 @@ class MenuKeeperSaveMenuProcessor extends Processor
      */
     function process()
     {
-        $this->menukeeper->cacheMenu(true);
+        $this->menukeeper->cacheMenu(true, 'snapshot');
         return $this->success($this->modx->lexicon('menukeeper.menu_saved'));
     }
 }

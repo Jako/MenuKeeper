@@ -10,11 +10,18 @@ MODX Package Management
 
 ## Usage
 
-Just install the extra. It is active by default.
+Just install the extra. It is active by default and tracks the menu entry
+positions automatically, so changes made in the menu editor don't have to be
+saved manually.
 
-There are two menu entries available in the manage menu to manually save and
-load the menu entry positions. If you manually edit the menu, you have to save
-the menu afterwards with `Manage` -> `MenuKeeper` -> `Save`.
+The MenuKeeper menu (in the `Manage` menu, in MODX 3.1 and newer in the `Admin`
+(gear) menu) contains two entries to save and load a snapshot of the menu entry
+positions.
+
+The installation disables the MODX system setting `package_installer_at_top`.
+The previous value is restored when MenuKeeper is uninstalled.
+
+See the [documentation](https://jako.github.io/MenuKeeper/) for details.
 
 ## License
 

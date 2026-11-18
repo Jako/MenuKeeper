@@ -28,7 +28,7 @@ class OnManagerPageBeforeRender extends Plugin
             $this->modx->controller->addHtml(
                 '<script type="text/javascript">
                     Ext.onReady(function() {
-                        MenuKeeper.config = ' . json_encode($this->menukeeper->options, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ';
+                        MenuKeeper.config = ' . json_encode($this->menukeeper->getManagerOptions(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ';
                     });
                 </script>'
             );
